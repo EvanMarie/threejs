@@ -56,7 +56,7 @@ export default function Index() {
 
           <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
             <NavButton text="Preset Design Options" to="/design" />
-
+            <NavButton text="Ev's Playground" to="/ev" />
             <NavButton text="Part One" to="/part-one" />
             <NavButton
               text="DarkViolet.ai"
