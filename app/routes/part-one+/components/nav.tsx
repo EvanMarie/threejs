@@ -12,9 +12,9 @@ export default function PartOneNav() {
         <HStackFull className="h-full items-center justify-around">
           <Button to="/part-one" buttonText="Intro" type="smallNormal" />
           <Button
-            to="https://github.com/ansonlichtfuss/remix-tailwind-threejs-template"
+            to="https://threejs.org/docs/#manual/en/introduction/Installation"
             target="_blank"
-            buttonText="Helpful Repo"
+            buttonText="Docs"
             type="smallNormal"
           />
         </HStackFull>
