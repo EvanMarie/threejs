@@ -74,7 +74,7 @@
 // export default App;
 
 import React, { useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { Box, Sphere } from "@react-three/drei";
 import { useSpring, a } from "@react-spring/three";
 import * as THREE from "three";
@@ -90,9 +90,10 @@ function SpinningBox() {
   });
 
   useFrame(() => {
+    console.log("Frame is running");
     if (meshRef.current) {
-      meshRef.current.rotation.x += 0.01;
-      meshRef.current.rotation.y += 0.01;
+      meshRef.current.rotation.y += 0.02;
+      meshRef.current.rotation.x += 0.02;
     }
   });
 
@@ -110,13 +111,14 @@ function SpinningBox() {
 
 function SpinningSphere() {
   const [active, setActive] = useState(false);
-  const meshRef = useRef<THREE.Mesh>(null);
-  const texture = useTexture("/images/sitebackground.png");
+  const meshRef = useRef<THREE.Mesh | null>(null);
+  const texture = useTexture("/images/textures/pink-scales-texture.png");
+  const [rotationSpeed, setRotationSpeed] = useState(0.002);
 
   useFrame(() => {
     if (meshRef.current) {
-      meshRef.current.rotation.y += 0.02;
-      meshRef.current.rotation.x += 0.02;
+      meshRef.current.rotation.y += rotationSpeed;
+      meshRef.current.rotation.x += rotationSpeed;
     }
   });
 
@@ -137,13 +139,38 @@ function SpinningSphere() {
   );
 }
 
+function MovingBackground() {
+  const texture = useLoader(THREE.TextureLoader, "/images/sitebackground.png");
+  const ref = useRef<THREE.Mesh | null>(null);
+  const [rotationSpeed, setRotationSpeed] = useState(0.002);
+
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.rotation.y += rotationSpeed;
+      ref.current.rotation.x += rotationSpeed;
+    }
+  });
+
+  return (
+    <mesh ref={ref} scale={[100, 100, 100]}>
+      <sphereGeometry args={[1, 64, 64]} />
+      <meshBasicMaterial map={texture} side={THREE.BackSide} />
+    </mesh>
+  );
+}
+
 export default function App() {
   return (
-    <Canvas shadows>
-      <ambientLight />
+    <Canvas
+      shadows
+      camera={{ position: [0, 0, 5] }}
+      style={{ backgroundColor: "darkCyan", height: "100vh" }}
+    >
+      <ambientLight intensity={0.5} />
       <directionalLight position={[0, 0, 5]} intensity={1.5} castShadow />
       <SpinningSphere />
-      <Environment preset="sunset" background />
+      <MovingBackground />
+      <Environment preset="night" background />
     </Canvas>
   );
 }
