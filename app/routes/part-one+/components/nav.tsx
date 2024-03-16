@@ -14,7 +14,13 @@ export default function PartOneNav() {
           <Button
             to="https://threejs.org/docs/#manual/en/introduction/Installation"
             target="_blank"
-            buttonText="Docs"
+            buttonText="threejs"
+            type="smallNormal"
+          />
+          <Button
+            to="https://docs.pmnd.rs/react-three-fiber/getting-started/introduction"
+            target="_blank"
+            buttonText="fiber"
             type="smallNormal"
           />
         </HStackFull>
