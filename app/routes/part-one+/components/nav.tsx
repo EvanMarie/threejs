@@ -15,6 +15,7 @@ export default function PartOneNav() {
             to="https://github.com/ansonlichtfuss/remix-tailwind-threejs-template"
             target="_blank"
             buttonText="Helpful Repo"
+            type="smallNormal"
           />
         </HStackFull>
       </HStackFull>

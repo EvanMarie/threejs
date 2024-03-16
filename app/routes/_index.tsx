@@ -51,27 +51,13 @@ export default function Index() {
       <Transition className="w-full h-full justify-center items-center">
         <VStackFull className="text-center xxl:w-[60vw]" gap="gap-[6vh]">
           <Text className="font-cursive boldTextGlow text-col-900 text-stroke-8-900 text-[5vh] md:text-[8vh] lg:text-[10vh] text-center animate-slideInRight">
-            Remix, Vite, & Tailwind
+            ThreeJS Playground
           </Text>
-          <VStackFull>
-            <Text className="text-col-100 text-2xl textShadow text-center animate-slideInLeft delay-1500">
-              A Project Launchpad with Vite, Tailwind CSS, and Remix Flat Routes
-            </Text>
-            <Text className="text-col-100 text-2xl textShadow text-center animate-zoomIn">
-              including extensive preset options and components with quick
-              customization.
-            </Text>
-          </VStackFull>
+
           <Wrap className="animate-slideInUp50vh gap-[3vh] duration-2200 justify-center">
-            <NavButton
-              text="Repo"
-              to="https://github.com/EvanMarie/remix-vite-tailwind"
-              icon={FaSquareGithub}
-              isExternal
-            />
             <NavButton text="Preset Design Options" to="/design" />
-            <NavButton text="Animation Examples" to="/design/css-animation" />
-            <NavButton text="SVG World" to="/design/svg" />
+
+            <NavButton text="Part One" to="/part-one" />
             <NavButton
               text="DarkViolet.ai"
               to="https://darkviolet.ai"
