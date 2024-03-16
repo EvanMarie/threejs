@@ -13,15 +13,17 @@ export default function CodeModal({
   code,
   title,
   isPath = true,
+  buttonClassName,
 }: {
   code: string;
   title: string;
   isPath?: boolean;
+  buttonClassName?: string;
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
-      <Box>
+      <Box className={buttonClassName}>
         <Button
           iconLeft={CodeIcon}
           onClick={() => setModalOpen(true)}
@@ -40,9 +42,7 @@ export default function CodeModal({
             <SVGHeading>{title}</SVGHeading>
             <FlexFull className="h-full overflow-y-auto">
               <FlexFull className="h-fit py-[1vh] px-[2vh]">
-                <CodeExample>
-                  {isPath && "d="}"{code}"
-                </CodeExample>
+                <CodeExample>{isPath ? "d=" + `"${code}"` : code}</CodeExample>
               </FlexFull>
             </FlexFull>
           </VStackFull>

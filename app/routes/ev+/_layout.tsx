@@ -9,7 +9,7 @@ export default function EvIndex() {
   return (
     <FlexFull className="h-screen">
       <HStackFull>
-        <VStack className="w-[13vw] flex-shrink-0 py-[2vh] px-[1vh] bg-col-770">
+        <VStack className="w-[13vw] flex-shrink-0 py-[2vh] px-[1vh] bg-col-270">
           <Button
             type="smallNormal"
             buttonText="home"
