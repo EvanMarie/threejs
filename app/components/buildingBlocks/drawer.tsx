@@ -101,7 +101,7 @@ export default function Drawer({
       case "bottom-center":
         return "bottom-0 left-1/2 -translate-x-1/2";
       case "left":
-        return "left-0 top-1/2 -translate-y-1/2";
+        return "left-0 top-0 -translate-y-0";
       case "right":
         return "right-0 top-1/2 -translate-y-1/2";
       default:

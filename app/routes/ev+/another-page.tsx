@@ -23,11 +23,11 @@ export default function AnotherPage() {
   };
 
   const handleClickFaster = () => {
-    setRotationSpeed(rotationSpeed + 0.0005);
+    setRotationSpeed(rotationSpeed + 0.0025);
   };
 
   const handleClickSlower = () => {
-    setRotationSpeed(rotationSpeed - 0.005);
+    setRotationSpeed(rotationSpeed - 0.0025);
   };
 
   return (

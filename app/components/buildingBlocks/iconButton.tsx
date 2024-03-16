@@ -58,11 +58,11 @@ export default function IconButton({
       : type === "smallNormal"
       ? "text-[1.6vh]"
       : type === "negative"
-      ? "text-[2.5vh] "
+      ? "text-[2.5vh]"
       : type === "smallNegative"
       ? "text-[1.6vh]"
       : type === "unstyled"
-      ? ""
+      ? "text-[2.5vh]"
       : type === "smallUnstyled"
       ? ""
       : "text-[1.6vh]";
