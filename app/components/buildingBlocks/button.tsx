@@ -4,6 +4,7 @@ import FlexFull from "./flexFull";
 import BouncingDots from "../specialty/bouncingDots";
 import Icon from "./icon";
 import { NavLink } from "@remix-run/react";
+import Text from "./text";
 
 export type ButtonType =
   | "normal"
@@ -94,6 +95,19 @@ export default function Button({
       ? "text-[2.3vh]"
       : "text-[1.7vh]";
 
+  const buttonTextSize =
+    type === "normal"
+      ? "text-[2vh] md:text-[2.3vh]"
+      : type === "smallNormal"
+      ? "text-[1.1vh] md:text-[1.7vh]"
+      : type === "negative"
+      ? "text-[2vh] md:text-[2.3vh]"
+      : type === "smallNegative"
+      ? "text-[1.1vh] md:text-[1.7vh]"
+      : type === "unstyled"
+      ? "text-[2.3vh]"
+      : "text-[1.1vh] md:text-[1.7vh]";
+
   function ButtonInsides() {
     // Combine all classes and include conditional classes for disabled state
     const combinedClasses = `${buttonClass} ${width} ${buttonHeight} ${className} ${padding} relative ${
@@ -117,7 +131,7 @@ export default function Button({
             iconClassName={`${displayIconSize} ${iconStyle}`}
           />
         )}
-        {buttonText}
+        <Text className={`${buttonTextSize}`}>{buttonText}</Text>
         {iconRight && (
           <Icon
             icon={iconRight}

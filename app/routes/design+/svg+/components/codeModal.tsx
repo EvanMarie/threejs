@@ -8,29 +8,38 @@ import FlexFull from "~/components/buildingBlocks/flexFull";
 import Modal from "~/components/buildingBlocks/modal";
 import VStackFull from "~/components/buildingBlocks/vStackFull";
 import { SVGHeading } from "../../components/formattingComponents";
+import IconButton from "~/components/buildingBlocks/iconButton";
 
 export default function CodeModal({
   code,
   title,
   isPath = true,
   buttonClassName,
+  iconOnly = false,
 }: {
   code: string;
   title: string;
   isPath?: boolean;
   buttonClassName?: string;
+  iconOnly?: boolean;
 }) {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
-      <Box className={buttonClassName}>
-        <Button
-          iconLeft={CodeIcon}
-          onClick={() => setModalOpen(true)}
-          buttonText={isPath ? "View Path" : "View Code"}
-          type="smallNormal"
-        />
-      </Box>
+      {iconOnly ? (
+        <Box className={buttonClassName}>
+          <IconButton icon={CodeIcon} onClick={() => setModalOpen(true)} />
+        </Box>
+      ) : (
+        <Box className={buttonClassName}>
+          <Button
+            iconLeft={CodeIcon}
+            onClick={() => setModalOpen(true)}
+            buttonText={isPath ? "View Path" : "View Code"}
+            type="smallNormal"
+          />
+        </Box>
+      )}
       <Modal
         isOpen={modalOpen}
         setModalOpen={setModalOpen}

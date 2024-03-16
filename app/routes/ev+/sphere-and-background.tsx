@@ -11,6 +11,7 @@ export default function SphereAndBackground() {
     <TransitionFullScreen className="relative">
       <CodeModal
         isPath={false}
+        iconOnly
         code={`import React, { useRef, useState } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { Box, Sphere } from "@react-three/drei";

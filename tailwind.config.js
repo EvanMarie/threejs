@@ -120,7 +120,6 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
 
   // Function to generate button styles with specific colors and shadows
   function generateButtonStyles(
-    fontSize,
     height,
     bgColor,
     color,
@@ -132,7 +131,6 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
   ) {
     return {
       ...baseButtonStyles,
-      fontSize,
       height,
       backgroundColor: theme(`colors.${bgColor}`, "transparent"),
       color: theme(`colors.${color}`, "currentColor"),
@@ -158,7 +156,6 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
   function generateUnstyledButtonStyles(fontSize, height) {
     return {
       ...baseButtonStyles,
-      fontSize,
       height,
       backgroundColor: "transparent",
       color: "currentColor",
@@ -176,7 +173,6 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
   // Utilities for specific button types
   const utilities = {
     ".normalButtonStyles": generateButtonStyles(
-      "2.1vh", // fontSize
       "3.5vh", // height
       "col.700", // bgColor
       "col.100", // color
@@ -186,7 +182,6 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
       "col.970" //hoverBorderColor
     ),
     ".smallButtonStyles": generateButtonStyles(
-      "1.6vh", // fontSize
       "2.9vh", // height
       "col.700", // bgColor
       "col.100", // color
@@ -196,7 +191,6 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
       "col.970" //hoverBorderColor
     ),
     ".negativeButtonStyles": generateButtonStyles(
-      "2.1vh", // fontSize
       "3.5vh", // height
       "red.400", // bgColor
       "col.100", // color
@@ -206,7 +200,6 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
       "red.800" //hoverBorderColor
     ),
     ".smallNegativeButtonStyles": generateButtonStyles(
-      "1.6vh", // fontSize
       "2.9vh", // height
       "red.400", // bgColor
       "col.100", // color
@@ -215,11 +208,8 @@ const buttonStyles = plugin(function ({ addUtilities, theme }) {
       "red.800", // hoverColor
       "red.800" //hoverBorderColor
     ),
-    ".unstyledButtonStyles": generateUnstyledButtonStyles("2.1vh", "3.5vh"),
-    ".smallUnstyledButtonStyles": generateUnstyledButtonStyles(
-      "1.6vh",
-      "2.9vh"
-    ),
+    ".unstyledButtonStyles": generateUnstyledButtonStyles("3.5vh"),
+    ".smallUnstyledButtonStyles": generateUnstyledButtonStyles("2.9vh"),
   };
 
   addUtilities(utilities, ["responsive", "hover"]);
@@ -2616,7 +2606,7 @@ export default {
         slideInUp50vh: "slideInUp50vh 1.5s ease-out",
         slideInDown: "slideInDown 1.5s ease-out",
         slideInRight: "slideInRight 1.5s ease-out",
-        slideInLeft: "slideInLeft 1.5s ease-out",
+        slideInLeft: "slideInLeft 0.6s ease-out",
         slideOutUp: "slideOutUp 1.5s ease-out",
         slideOutDown: "slideOutDown 1.5s ease-out",
         slideUpLeft: "slideUpLeft 1.5s ease-out",
