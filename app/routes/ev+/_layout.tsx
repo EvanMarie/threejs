@@ -6,6 +6,7 @@ import {
 } from "react-icons/fa";
 import { RiMenuUnfoldLine } from "react-icons/ri";
 import Button from "~/components/buildingBlocks/button";
+import Drawer from "~/components/buildingBlocks/drawer";
 import Flex from "~/components/buildingBlocks/flex";
 import FlexFull from "~/components/buildingBlocks/flexFull";
 import HStack from "~/components/buildingBlocks/hStack";
@@ -36,25 +37,23 @@ function EvIndexVStack() {
 
 export default function EvIndex() {
   const [menuVisible, setMenuVisible] = useState(false);
-  const [exiting, setExiting] = useState(false);
 
   return (
     <FlexFull className="h-screen">
       <HStackFull>
         {menuVisible && (
-          <HStack
-            className={`md:hidden items-center h-screen animate-slideInLeft`}
+          <Drawer
+            isOpen={menuVisible}
+            setDrawerOpen={setMenuVisible}
+            onClose={() => {
+              setMenuVisible(false);
+            }}
+            slideDirection="left"
           >
             <EvIndexVStack />
-            <Flex className="text-col-100 h-full px-[1vh]">
-              <IconButton
-                icon={FaRegArrowAltCircleLeft}
-                type="smallUnstyled"
-                onClick={() => setMenuVisible(false)}
-              />
-            </Flex>
-          </HStack>
+          </Drawer>
         )}
+
         {!menuVisible && (
           <Flex className="absolute left-0 top-1/2 text-col-100 px-[1vh]">
             <IconButton
